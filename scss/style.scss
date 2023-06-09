@@ -1,3 +1,7 @@
+@use "./components/header/header.scss";
+@use "./components/main/main.scss";
+@use "./components/leftAside/leftAside.scss";
+@use "./components/rightAside/rightAside.scss";
 @use "./base.scss";
 @use "./abstracts/reset";
 @use "./abstracts/mediaqueries";
