@@ -1,0 +1,46 @@
+@media screen and (max-width: 62.5rem) { // 1000 pixels
+    .main {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .leftAside{
+        display: block;
+    }
+
+    .video{
+        gap: 2rem;
+        &__information{
+            margin-bottom: 2rem;
+        }
+    }
+    .comments__textArea{
+        margin-bottom: 2rem;
+    }
+    .rightAside__video{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 41.625rem) { //666 pixels
+    .video__main{
+        height: auto;
+        width: 100%;
+    }
+    .video__information{
+        width: 100%;
+    }
+    .comments__list--item{
+        width: 100%;
+    }
+
+    .comments__textArea{
+        width: 100%;
+    }
+
+    .rightAside__video{
+        width: 100%;
+    }
+}

@@ -15,13 +15,14 @@
         
     }
     &__information{
-        width: 100%;
+        width: 62.3rem;
         display: flex;
         align-items: center;
         background: white;
         padding: 1rem;
         border-radius: 0.5rem;
         box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+
 
         &--left{
             justify-content: flex-start;
@@ -65,7 +66,7 @@
         border: none;
         padding: 1.5rem;
         border-radius: 0.5rem;
-        width: 100%;
+        width: 62.3rem;
         resize: none;
         background: white;
         box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
