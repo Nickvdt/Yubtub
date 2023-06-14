@@ -1,84 +1,99 @@
-class App{
+class Api {
+    url = "";
+    data = null;
+
+    constructor(newURL) {
+        this.url = newURL;
+    }
+
+    async getData() {
+        await fetch(this.url)
+            .then(function (response) {
+                return response.json();
+            }).then((data) => {
+                this.data = data.data;
+            });
+        return this.data;
+        
+    }
+
+}
+
+class App {
     switcher;
-    data = [
-    {
-        id: 0,
-        video: "video--1.mp4",
-        link: 1
+    constructor() {
+        this.api = new Api("./data/data.json");
 
-    },
-    {
-        id: 1,
-        video: "video--2.mp4",
-        link: 0
-    }]
-
-    constructor(){
-        this.switcher = new Switcher(this, this.data);
+        this.api
+        .getData().then((data) => {
+            this.switcher = new Switcher(this, data);
+        });
     }
 }
 
-class Switcher{
+class Switcher {
     yubtub;
     cleaner;
     app;
     default = 0;
-    constructor(app, data){
+    constructor(app, data) {
         this.data = data
         this.app = app;
+       
         this.yubtub = new Yubtub(this.app, data[this.default]);
         this.cleaner = new Cleaner();
     }
 
-    switch(link){
+    switch(link) {
         this.cleaner.clean("body");
         this.yubtub = new Yubtub(this.app, this.data[link]);
     }
 }
 
-class Cleaner{
-    clean(whereToClean){
+class Cleaner {
+    clean(whereToClean) {
         document.querySelector(whereToClean).innerHTML = "";
     }
 }
 
 
-class Yubtub{
+class Yubtub {
     aside;
     renderer;
-    constructor(app, data){
-        console.log(data);
+    constructor(app, data) {
+        this.data = data;
         this.app = app;
+        console.log(data);
         this.renderer = new Renderer(this);
         this.aside = new Aside(this, data);
 
     }
 }
 
-class Renderer{
-    render(whereToRender, whatToRender){
+class Renderer {
+    render(whereToRender, whatToRender) {
         document.querySelector(whereToRender).appendChild(whatToRender);
     }
 }
 
-class Aside{
+class Aside {
     yubtub;
     nextVideo;
     htmlelement;
-    constructor(yubtub, data){
-        console.log(data);
+    constructor(yubtub, data) {
         this.yubtub = yubtub;
         this.htmlelement = document.createElement("aside");
-
         this.yubtub.renderer.render("body", this.htmlelement);
         this.nextVideo = new NextVideo(this, data);
+        
     }
 }
 
-class NextVideo{
+class NextVideo {
     aside;
     htmlelement;
-    constructor(aside ,data){
+    data;
+    constructor(aside, data) {
         this.aside = aside;
         this.data = data;
         this.htmlelement = document.createElement("video");
@@ -87,7 +102,7 @@ class NextVideo{
         this.htmlelement.onclick = this.videoClicked;
     }
 
-    videoClicked = () =>{
+    videoClicked = () => {
         this.aside.yubtub.app.switcher.switch(this.data.link);
     }
 }
