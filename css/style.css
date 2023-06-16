@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 
-.leftAside {
+.leftSection {
   display: flex;
   align-items: center;
   flex-direction: column;
