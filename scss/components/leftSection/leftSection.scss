@@ -7,37 +7,50 @@
 
 
 .video{
-
     &__main{
+        position: relative;
         height: 35rem;
         border-radius: 0.5rem;
         box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
         
     }
     &__information{
+        opacity: 0;
+        transition: opacity 0.3s;
+        position: absolute;
+        bottom: 46%;
         width: 62.3rem;
         display: flex;
         align-items: center;
         background: white;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
-
+        border-radius: 0 0 0.5rem 0.5rem;
+        padding: 2rem;
 
         &--left{
+            opacity: 1;
+            left: 0;
+            margin-left: auto;
             justify-content: flex-start;
             gap: 2rem;
             box-shadow: none;
         }
 
         &--right{
+            opacity: 1;
+            right: 0;
             justify-content: flex-end;
             gap: 2rem;
             box-shadow: none;
+            margin-bottom: 5%;
+            box-shadow: none;
+            background: transparent;
+            
+        }
+        &:hover{
+            opacity: 1;
         }
     }
 }
-
 .comments{
     height: 100%;
     display: flex;
@@ -71,4 +84,11 @@
         background: white;
         box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
     }
+}
+
+.fa-regular{
+    cursor: pointer;
+}
+.fa-solid{
+    cursor: pointer;
 }
