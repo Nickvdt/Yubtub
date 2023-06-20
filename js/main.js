@@ -87,8 +87,9 @@ class Main{
 
         this.videoElement = document.createElement("video");
         this.videoElement.classList.add("video__main");
-        this.videoElement.controls = true;
+        this.videoElement.autoplay = true;
         this.videoElement.src = "videos/video--2.mp4";
+        
 
         this.videoInfo = document.createElement("section");
         this.videoInfo.classList.add("video__information");
