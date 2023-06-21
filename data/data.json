@@ -3,12 +3,24 @@
         {
             "id": 0,
             "video": "video--1.mp4",
-            "link": 1
+            "link": 1,
+            "profilepicture": "https://picsum.photos/80",
+            "title": "Een Korte Blik op een Waterval",
+            "comment1": "Prachtig werk!",
+            "comment2": "cool",
+            "comment1profilepicture": "https://picsum.photos/81",
+            "comment2profilepicture": "https://picsum.photos/82"
         },
         {
-            "id": 0,
-            "video": "video--1.mp4",
-            "link": 0
+            "id": 1,
+            "video": "video--2.mp4",
+            "link": 0,
+            "profilepicture": "https://picsum.photos/79",
+            "title": "Zonsondergang aan het Strand",
+            "comment1": "Waar is dit?",
+            "comment2": "niceee",
+            "comment1profilepicture": "https://picsum.photos/78",
+            "comment2profilepicture": "https://picsum.photos/77"
         }
     ]
 }
