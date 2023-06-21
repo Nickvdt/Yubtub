@@ -19,7 +19,7 @@
         width: 75%;
     }
     .video__information{
-        bottom: 43%;
+        bottom: 48%;
     }
 
 }
@@ -31,7 +31,7 @@
     }
     .video__information{
         width: 50rem;
-        bottom: 52%;
+        bottom: 56.5%;
     }
     .comments__list--item{
         width: 50rem;
@@ -50,11 +50,17 @@
         width: 40rem;
     }
     .video__information{
+        font-size: 1.2rem;
         width: 40rem;
-        bottom: 60%;
+        bottom: 63.5%;
+        padding: 1.5rem;
     }
     .comments__list--item{
         width: 40rem;
+        font-size: 1.2rem;
+    }
+    .header__p{
+        font-size: 1.5rem;
     }
 }
 
@@ -64,9 +70,13 @@
     }
     .video__information{
         width: 30rem;
-        bottom: 70%;
+        bottom: 67.5%;
+        padding: 0.8rem;
     }
     .comments__list--item{
         width: 30rem;
+    }
+    .profilePicture{
+        width: 3rem;
     }
 }

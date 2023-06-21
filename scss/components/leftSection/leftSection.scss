@@ -18,13 +18,15 @@
         opacity: 0;
         transition: opacity 0.3s;
         position: absolute;
-        bottom: 46%;
+        bottom: 41%;
         width: 62.3rem;
         display: flex;
         align-items: center;
         background: white;
         border-radius: 0 0 0.5rem 0.5rem;
         padding: 2rem;
+        
+       
 
         &--left{
             opacity: 1;

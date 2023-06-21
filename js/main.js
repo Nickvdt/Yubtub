@@ -67,12 +67,26 @@ class Yubtub {
         this.data = data;
         this.app = app;
         this.renderer = new Renderer(this);
+        this.header = new Header(this);
         this.main = new Main(this, data);
         this.aside = new Aside(this, data);
-        
+
     }
 }
+class Header {
+    yubtub
+    constructor(yubtub) {
+        this.yubtub = yubtub
+        this.headerElement = document.createElement("header");
+        this.headerElement.classList.add("header");
+        this.headerPElement = document.createElement("p");
+        this.headerPElement.classList.add("header__p");
+        this.headerPElement.innerText = "Gemaakt door Nick van der Tol SD2D Mediacollege";
 
+        this.yubtub.renderer.render("body", this.headerElement);
+        this.headerElement.appendChild(this.headerPElement);
+    }
+  }
 
 class Main{
     yubtub;
@@ -89,9 +103,11 @@ class Main{
         this.comments = new Comments(data);
 
         this.mainElement.appendChild(this.leftSection);
+        
         this.leftSection.appendChild(this.video.sectionElement); // uit de classe video
         this.leftSection.appendChild(this.comments.comments); // uit de classe comments
         this.yubtub.renderer.render("body", this.mainElement);
+    
 
     }
 }
