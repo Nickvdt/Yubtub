@@ -14,7 +14,7 @@ class Api {
                 this.data = data.data;
             });
         return this.data;
-        
+
     }
 
 }
@@ -25,7 +25,7 @@ class App {
         this.api = new Api("./data/data.json");
 
         this.api.getData().then((data) => {
-            
+
             this.switcher = new Switcher(this, data);
         });
     }
@@ -33,19 +33,19 @@ class App {
 
 
 
-class Switcher{
+class Switcher {
     yubtub;
     cleaner;
     app;
     default = 0;
-    constructor(app, data){
+    constructor(app, data) {
         this.data = data
         this.app = app;
         this.yubtub = new Yubtub(this.app, data[this.default]);
         this.cleaner = new Cleaner();
     }
 
-    switch(link){
+    switch(link) {
         this.cleaner.clean("body");
         this.yubtub = new Yubtub(this.app, this.data[link]);
     }
@@ -86,12 +86,12 @@ class Header {
         this.yubtub.renderer.render("body", this.headerElement);
         this.headerElement.appendChild(this.headerPElement);
     }
-  }
+}
 
-class Main{
+class Main {
     yubtub;
     video;
-    constructor(yubtub, data){
+    constructor(yubtub, data) {
         this.yubtub = yubtub;
         this.data = data;
         this.mainElement = document.createElement("main");
@@ -103,17 +103,17 @@ class Main{
         this.comments = new Comments(data);
 
         this.mainElement.appendChild(this.leftSection);
-        
+
         this.leftSection.appendChild(this.video.sectionElement); // uit de classe video
         this.leftSection.appendChild(this.comments.comments); // uit de classe comments
         this.yubtub.renderer.render("body", this.mainElement);
-    
+
 
     }
 }
 
-class Video{
-    constructor(data){
+class Video {
+    constructor(data) {
         this.data = data;
         this.sectionElement = document.createElement("section");
         this.sectionElement.classList.add("video")
@@ -158,10 +158,9 @@ class Video{
     }
 }
 
-class Comments{
-    constructor(data){
+class Comments {
+    constructor(data) {
         this.data = data;
-     
         this.comments = document.createElement("section");
         this.comments.classList.add("comments");
 
@@ -171,47 +170,47 @@ class Comments{
         this.textAreaElement = document.createElement("textarea");
         this.textAreaElement.classList.add("comments__textArea");
         this.textAreaElement.placeholder = "Plaats hier je reactie";
+        this.textAreaElement.setAttribute("maxlength", "30");
+        this.textAreaElement.addEventListener("keydown", this.processEnterKey.bind(this));
 
         this.comments.appendChild(this.commentsList);
-        this.comment = new Comment(data);
-
-        this.commentsList.appendChild(this.comment.commentsListItem);
-        this.commentsList.appendChild(this.comment.commentsListItem2);
-
         this.comments.appendChild(this.textAreaElement);
+
+        this.addComment(data.comment1, data.comment1profilepicture);
+        this.addComment(data.comment2, data.comment2profilepicture);
+    }
+
+    processEnterKey(event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            this.commentText = this.textAreaElement.value.trim();
+            if (this.commentText !== "") {
+                this.addComment(this.commentText, this.data.profilepicture);
+                this.textAreaElement.value = "";
+            }
+        }
+    }
+
+    addComment(commentText, profilePicture) {
+        this.comment = new Comment(commentText, profilePicture);
+        this.commentsList.appendChild(this.comment.commentsListItem);
     }
 }
 
-class Comment{
-    constructor(data){
-        this.profilePictureReaction = document.createElement("img");
-        this.profilePictureReaction.src = data["comment1profilepicture"];
-        this.profilePictureReaction.classList.add("profilePicture");
-    
-        this.profilePictureReaction2 = document.createElement("img");
-        this.profilePictureReaction2.src = data["comment2profilepicture"];
-        this.profilePictureReaction2.classList.add("profilePicture");
-
-        this.commentsListItem = document.createElement("li")
+class Comment {
+    constructor(commentText, profilePicture) {
+        this.commentsListItem = document.createElement("li");
         this.commentsListItem.classList.add("comments__list", "comments__list--item");
 
-        this.commentsListItem2 = document.createElement("li")
-        this.commentsListItem2.classList.add("comments__list", "comments__list--item");
-
-        this.reactionElement = document.createElement("p");
-        this.reactionElement.textContent = data["comment1"];
-
-        this.reactionElement2 = document.createElement("p");
-        this.reactionElement2.textContent = data["comment2"];
-
+        this.profilePictureReaction = document.createElement("img");
+        this.profilePictureReaction.classList.add("profilePicture");
+        this.profilePictureReaction.src = profilePicture;
         this.commentsListItem.appendChild(this.profilePictureReaction);
-        this.commentsListItem.appendChild(this.reactionElement);
 
-        this.commentsListItem2.appendChild(this.profilePictureReaction2);
-        this.commentsListItem2.appendChild(this.reactionElement2);
-
+        this.commentTextElement = document.createElement("p");
+        this.commentTextElement.textContent = commentText;
+        this.commentsListItem.appendChild(this.commentTextElement);
     }
-
 }
 
 class Renderer {
@@ -230,7 +229,7 @@ class Aside {
         this.htmlelement.classList.add("rightAside");
         this.yubtub.renderer.render("main", this.htmlelement);
         this.nextVideo = new NextVideo(this, data);
-        
+
     }
 }
 
@@ -246,7 +245,7 @@ class NextVideo {
         this.htmlelement.src = "./videos/" + data.video;
         this.aside.yubtub.renderer.render("aside", this.htmlelement);
         this.htmlelement.onclick = this.videoClicked;
-        
+
     }
 
     videoClicked = () => {
