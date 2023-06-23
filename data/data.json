@@ -2,7 +2,7 @@
     "data":[
         {
             "id": 0,
-            "video": "video--1.mp4",
+            "video": "video--0.mp4",
             "link": 1,
             "profilepicture": "https://picsum.photos/80",
             "title": "Een Korte Blik op een Waterval",
@@ -13,7 +13,7 @@
         },
         {
             "id": 1,
-            "video": "video--2.mp4",
+            "video": "video--1.mp4",
             "link": 0,
             "profilepicture": "https://picsum.photos/79",
             "title": "Zonsondergang aan het Strand",

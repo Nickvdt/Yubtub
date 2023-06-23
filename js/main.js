@@ -242,7 +242,7 @@ class NextVideo {
         this.data = data;
         this.htmlelement = document.createElement("video");
         this.htmlelement.classList.add("rightAside__video");
-        this.htmlelement.src = "./videos/" + data.video;
+        this.htmlelement.src = "./videos/video--" + data.link + ".mp4";
         this.aside.yubtub.renderer.render("aside", this.htmlelement);
         this.htmlelement.onclick = this.videoClicked;
 
