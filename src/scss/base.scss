@@ -1,0 +1,9 @@
+@use "./abstracts/colors";
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, map-get(colors.$colorPalette, "purple"), map-get(colors.$colorPalette, "lightpurple"));
+}

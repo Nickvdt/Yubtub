@@ -1,0 +1,11 @@
+@use "../../abstracts/colors";
+
+.header {
+    margin-top: 1.3rem;
+    text-align: center;
+
+    &__p {
+        color: map-get(colors.$baseColors, "white");
+        font-size: 2rem;
+    }
+}

@@ -1,4 +1,6 @@
-.main{
+@use "../../abstracts/colors";
+
+.main {
     width: 100%;
     height: 100%;
     display: flex;
@@ -8,11 +10,11 @@
     font-size: 2rem;
 }
 
-.profilePicture{
+.profilePicture {
     border-radius: 50%;
-    border: 0.1rem solid black;
+    border: 0.1rem solid map-get(colors.$baseColors, "black");
 
-    &:hover{
+    &:hover {
         cursor: pointer;
     }
 }

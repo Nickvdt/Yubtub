@@ -3,7 +3,7 @@
   text-align: center;
 }
 .header__p {
-  color: #eee;
+  color: #FFFFFF;
   font-size: 2rem;
 }
 
@@ -19,7 +19,7 @@
 
 .profilePicture {
   border-radius: 50%;
-  border: 0.1rem solid black;
+  border: 0.1rem solid #000000;
 }
 .profilePicture:hover {
   cursor: pointer;
@@ -27,26 +27,34 @@
 
 .leftSection {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
 }
 
-.video__main {
+.video {
   position: relative;
+}
+.video__main {
   height: 35rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+}
+.video__star {
+  position: absolute;
+  left: -3%;
+  top: 0.5%;
+  font-size: 5rem;
 }
 .video__information {
   opacity: 0;
   transition: opacity 0.3s;
   position: absolute;
-  bottom: 41%;
+  bottom: 0%;
   width: 62.3rem;
   display: flex;
   align-items: center;
-  background: white;
+  background: #FFFFFF;
   border-radius: 0 0 0.5rem 0.5rem;
   padding: 2rem;
 }
@@ -91,7 +99,7 @@
   gap: 2rem;
   padding: 2rem;
   border-radius: 0.5rem;
-  background: white;
+  background: #FFFFFF;
   box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
 }
 .comments__textArea {
@@ -101,7 +109,7 @@
   border-radius: 0.5rem;
   width: 62.3rem;
   resize: none;
-  background: white;
+  background: #FFFFFF;
   box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -127,9 +135,12 @@
   cursor: pointer;
 }
 
-body {
+html {
   font-family: sans-serif;
-  background: linear-gradient(145deg, #5C16C5, #e7b4f9);
+}
+
+body {
+  background: linear-gradient(135deg, #5C16C5, #e7b4f9);
 }
 
 *, *::before, *::after {
@@ -160,24 +171,23 @@ html {
   .rightAside__video {
     width: 75%;
   }
-  .video__information {
-    bottom: 48%;
-  }
 }
 @media screen and (max-width: 41.625rem) {
   .video__main {
     height: auto;
     width: 50rem;
   }
-  .video__information {
-    width: 50rem;
-    bottom: 56.5%;
-  }
   .comments__list--item {
     width: 50rem;
   }
   .comments__textArea {
     width: 100%;
+  }
+  .video__information {
+    width: 50rem;
+  }
+  .video__star {
+    font-size: 3.5rem;
   }
   .rightAside__video {
     width: 100%;
@@ -190,7 +200,6 @@ html {
   .video__information {
     font-size: 1.2rem;
     width: 40rem;
-    bottom: 63.5%;
     padding: 1.5rem;
   }
   .comments__list--item {
@@ -207,7 +216,6 @@ html {
   }
   .video__information {
     width: 30rem;
-    bottom: 67.5%;
     padding: 0.8rem;
   }
   .comments__list--item {

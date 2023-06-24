@@ -1,0 +1,108 @@
+@media screen and (max-width: 62.5rem) {
+
+    // 1000 pixels
+    .main {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .leftAside {
+        display: block;
+    }
+
+    .video {
+        gap: 2rem;
+    }
+
+    .comments__textArea {
+        margin-bottom: 2rem;
+    }
+
+    .rightAside__video {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 41.625rem) {
+
+    //666 pixels
+    .video__main {
+        height: auto;
+        width: 50rem;
+    }
+
+    .comments {
+        &__list {
+            &--item {
+                width: 50rem;
+            }
+        }
+
+        &__textArea {
+            width: 100%;
+        }
+    }
+
+    .video {
+        &__information {
+            width: 50rem;
+        }
+
+        &__star {
+            font-size: 3.5rem;
+        }
+    }
+
+    .rightAside__video {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 34.375rem) {
+
+    // 550 pixels
+    .video {
+        &__main {
+            width: 40rem;
+        }
+
+        &__information {
+            font-size: 1.2rem;
+            width: 40rem;
+            padding: 1.5rem;
+        }
+    }
+
+    .comments__list--item {
+        width: 40rem;
+        font-size: 1.2rem;
+    }
+
+    .header__p {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 28.125rem) {
+
+    // 450 pixels
+    .video {
+        &__main {
+            width: 30rem;
+        }
+
+        &__information {
+            width: 30rem;
+            padding: 0.8rem;
+        }
+    }
+
+    .comments__list--item {
+        width: 30rem;
+    }
+
+    .profilePicture {
+        width: 3rem;
+    }
+}
