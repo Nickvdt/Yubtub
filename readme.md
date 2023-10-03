@@ -1,0 +1,2 @@
+# Yutub
+Dit project is een kloon van YouTube genaamd 'Yutub'. Het is ontwikkeld met een focus op objectgeoriënteerde programmering (OOP) in JavaScript. De HTML-content wordt gegenereerd vanuit JavaScript. De stijlen zijn opgesteld met behulp van SCSS (Sass)
